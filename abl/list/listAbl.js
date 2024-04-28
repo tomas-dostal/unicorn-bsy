@@ -1,13 +1,16 @@
 const listDao = require("../../dao/list-dao.js");
+const itemDao = require("../../dao/item-dao.js");
 
 async function ListAbl(req, res) {
     try {
         const listList = listDao.list();
 
-        const itemsMap = itemDao.itemMap();
+
+
+        const itemsMap = itemDao.listMap();
 
         listList.forEach((list) => {
-            list.userMap = itemDao[list.id] || {};
+            list.itemsMap = itemDao[list.id] || {};
         });
 
         res.json(listList);

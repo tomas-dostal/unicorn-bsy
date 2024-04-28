@@ -10,10 +10,24 @@ const schema = {
     properties: {
         id: {type: "string", minLength: 32, maxLength: 32},
         name: {type: "string", minLength: 3},
-        createdAt: {type: "string", format: "date-time"},
-        modifiedAt: {type: "string", format: "date-time"},
+        createdAt: { readOnly: true, type: "string", format: "date-time"},
+        modifiedAt: { readOnly: true, type: "string", format: "date-time"},
+        userId: { readOnly: true },
+        sharedWith: {
+            type: "array",
+            items: {
+                type: "object",
+                properties: {
+                    userId: {type: "string", minLength: 32, maxLength: 32}
+                },
+                required: ["userId"],
+                additionalProperties: false
+            }
+        }
     },
     required: ["id", "name"],
+    // Define property level readOnly to prevent updates to userId (transferring lists to another user)
+    // This will allow the userId field to be set only during creation but disallow updates to it.
     additionalProperties: false,
 };
 

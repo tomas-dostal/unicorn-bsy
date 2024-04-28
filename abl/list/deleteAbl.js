@@ -28,14 +28,14 @@ async function DeleteAbl(req, res) {
             return;
         }
 
-        const attendanceMap = attendanceDao.eventMap();
-        if (attendanceMap[reqParams.id]) {
-            res.status(400).json({
-                code: "eventHasAttendances",
-                message: `Event ${reqParams.id} has attendances`,
-            });
-            return;
-        }
+        // const attendanceMap = attendanceDao.eventMap();
+        // if (attendanceMap[reqParams.id]) {
+        //     res.status(400).json({
+        //         code: "eventHasAttendances",
+        //         message: `Event ${reqParams.id} has attendances`,
+        //     });
+        //     return;
+        // }
 
         eventDao.remove(reqParams.id);
         res.json({});

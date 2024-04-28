@@ -241,7 +241,78 @@
 					"response": []
 				},
 				{
-					"name": "/list create2 shared",
+					"name": "/list get list1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/list/list/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"list",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/list list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/item/list/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"item",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/list update shared empty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1806525ad6a6bfd3e18a49554e4fbb3e\",\n    \"name\": \"My shared TODO list\",\n    \"sharedWith\": [\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/list/update",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"list",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/list update 1 shared",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -264,6 +335,153 @@
 							"path": [
 								"list",
 								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/list delete 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My personal TODO list\",\n    \"userId\": \"1b4425b61aedc64242b776a69ffe2718\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/list/create",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"list",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "/item create1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"test item\",\n    \"userId\": \"1b4425b61aedc64242b776a69ffe2718\", \n    \"listId\": \"ebc467478368948667b5ec023d6e09c0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/item/create",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"item",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/item list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/list/list/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"list",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/item get item1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"4a381725adf6ad4f05be56e54104ba61\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/item/list/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"item",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/item delete item1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"1b4425b61aedc64242b776a69ffe2718\",\n    \"listId\": \"ebc467478368948667b5ec023d6e09c0\",\n    \"id\": \"dc48a4d7f82aadbac443fb4e50959924\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/item/delete/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"item",
+								"delete",
+								""
 							]
 						}
 					},

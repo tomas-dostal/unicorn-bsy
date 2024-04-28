@@ -5,9 +5,11 @@ const itemDao = require("../../dao/item-dao.js");
 const schema = {
     type: "object",
     properties: {
-        id: {type: "string"},
+        id: {type: "string", minLength: 32, maxLength: 32},
+        listId: {type: "string", minLength: 32, maxLength: 32},
+        userId: {type: "string", minLength: 32, maxLength: 32},
     },
-    required: ["id"],
+    required: ["id", "listId", "userId"],
     additionalProperties: false,
 };
 

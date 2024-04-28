@@ -40,9 +40,8 @@ async function GetAbl(req, res) {
             return;
         }
 
-        const attendanceMap = attendanceDao.listMap();
-        list.userMap =
-            attendanceMap[reqParams.id] || {};
+        // list.userMap =
+        //     attendanceMap[reqParams.id] || {};
 
         res.json(list);
     } catch (e) {

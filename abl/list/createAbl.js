@@ -16,9 +16,9 @@ const schema = {
             items: {
                 type: "object",
                 properties: {
-                    id: {type: "string", minLength: 32, maxLength: 32}
+                    userId: {type: "string", minLength: 32, maxLength: 32}
                 },
-                required: ["id"],
+                required: ["userId"],
                 additionalProperties: false
             }
         }

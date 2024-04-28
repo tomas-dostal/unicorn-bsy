@@ -72,10 +72,24 @@ function list() {
     }
 }
 
+function listMap() {
+    const itemList = list();
+    const listMap = {};
+    itemList.forEach((i) => {
+        if (!listMap[i.id])
+            listMap[i.listId] = {};
+        listMap[i.listId][i.id] = {
+            "item": i.item
+        };
+    });
+    return listMap;
+}
+
 module.exports = {
     get,
     create,
     update,
     remove,
     list,
+    listMap
 };

@@ -72,10 +72,15 @@ function list() {
     }
 }
 
+function isListSharedWith(list, userId) {
+    return list.sharedWith.some(sharedUser => sharedUser.userId === userId);
+}
+
 module.exports = {
     get,
     create,
     update,
     remove,
     list,
+    isListSharedWith
 };
