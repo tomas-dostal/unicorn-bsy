@@ -40,7 +40,7 @@ describe('CreateAbl', () => {
     expect(res.json).toHaveBeenCalledWith(mockList);
   });
 
-  it('should return 400 if user does not exist and dtoIn is valid', async () => {
+  it('should return 404 if user does not exist and dtoIn is valid', async () => {
     userDao.get = jest.fn(() => undefined); // Mocking userDao.get to return undefined
     await CreateAbl(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
